@@ -3,6 +3,14 @@ local colors = require("base46").get_theme_tb "base_30"
 
 return {
 
+  diffOldFile = {
+    fg = colors.baby_pink,
+  },
+
+  diffNewFile = {
+    fg = colors.blue,
+  },
+
   DiffAdd = {
     fg = colors.blue,
   },
@@ -32,8 +40,8 @@ return {
   },
 
   DiffText = {
-   fg = colors.white,
-   bg = colors.black2
+    fg = colors.white,
+    bg = colors.black2,
   },
 
   -- git commits

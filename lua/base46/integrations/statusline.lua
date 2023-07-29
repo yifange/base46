@@ -18,6 +18,10 @@ elseif statusline_theme == "vscode_colored" then
   light_grey = generate_color(colors.light_grey, 25)
 end
 
+if config.transparency then
+  statusline_bg = "NONE"
+end
+
 local Lsp_highlights = {
   St_lspError = {
     fg = colors.red,
@@ -200,39 +204,39 @@ M.vscode_colored = {
 
 M.minimal = {
   StatusLine = {
-    bg = colors.black,
+    bg = "none",
   },
 
   St_gitIcons = {
     fg = generate_color(light_grey, 8),
-    bg = colors.black,
+    bg = "none",
     bold = true,
   },
 
   -- LSP
   St_lspError = {
     fg = colors.red,
-    bg = colors.black,
+    bg = "none",
   },
 
   St_lspWarning = {
     fg = colors.yellow,
-    bg = colors.black,
+    bg = "none",
   },
 
   St_LspHints = {
     fg = colors.purple,
-    bg = colors.black,
+    bg = "none",
   },
 
   St_LspInfo = {
     fg = colors.green,
-    bg = colors.black,
+    bg = "none",
   },
 
   St_LspProgress = {
     fg = colors.green,
-    bg = colors.black,
+    bg = "none",
   },
 
   St_LspStatus_Icon = {
@@ -242,7 +246,7 @@ M.minimal = {
 
   St_EmptySpace = {
     fg = colors.black,
-    bg = colors.black,
+    bg = "none",
   },
 
   St_EmptySpace2 = {
@@ -250,37 +254,20 @@ M.minimal = {
   },
 
   St_file_info = {
-    bg = colors.black,
     fg = colors.white,
+    bg = "none",
   },
 
   St_file_sep = {
-    bg = colors.black,
     fg = colors.black,
+    bg = "none",
   },
 
   St_sep_r = {
-    bg = colors.black,
     fg = colors.one_bg,
+    bg = "none",
   },
 }
-
-local hlgroups_minimal_glassy = {
-  "St_lspError",
-  "St_lspWarning",
-  "St_LspHints",
-  "St_gitIcons",
-  "St_LspInfo",
-  "St_EmptySpace",
-  "St_LspProgress",
-  "St_sep_r",
-}
-
-if config.transparency then
-  for _, value in ipairs(hlgroups_minimal_glassy) do
-    M.minimal[value].bg = "NONE"
-  end
-end
 
 -- add common lsp highlights
 M.default = merge_tb("force", M.default, Lsp_highlights)
